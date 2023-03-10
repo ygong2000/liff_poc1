@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My LIFF App</title>
+  <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+  <script>
+    window.onload = function() {
+      liff.init(function() {
+        var userId = liff.getContext().userId;
+        document.getElementById("userid").innerHTML = userId;
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>Your Line UID:</h1>
+  <p id="userid"></p>
+</body>
+</html>
