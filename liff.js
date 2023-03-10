@@ -5,6 +5,7 @@ liff.init({
 }).then(() => {
   // Now you can call LIFF API methods
   const userIdElement = document.getElementById('userId');
+  userIdElement.innerHTML = `staet`;
 
   if (liff.isLoggedIn()) {
     const userId = liff.getProfile().userId;
