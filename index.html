@@ -10,18 +10,23 @@
   <button onclick="getLineUserId()">Get Line User ID</button>
   <script>
     function getLineUserId() {
-      liff.init({
-        liffId: '1656167992-OLx3dxD5'
-      }).then(() => {
-        if (liff.isLoggedIn()) {
-          const userId = liff.getProfile().userId;
-          document.getElementById('userId').innerHTML = `Your Line user ID is: ${userId}`;
-        } else {
-          liff.login();
-        }
-      }).catch((err) => {
-        console.log(`LIFF initialization failed: ${err.message}`);
-      });
+	  liff.init({
+		liffId: '1656167992-OLx3dxD5'
+	  }).then(() => {
+		if (liff.isLoggedIn()) {
+		  const userProfile = liff.getProfile();
+		  if (userProfile) {
+			const userId = userProfile.userId;
+			document.getElementById('userId').innerHTML = `Your Line user ID vv is: ${userId}`;
+		  } else {
+			console.log('Failed to get user profile');
+		  }
+		} else {
+		  liff.login();
+		}
+	  }).catch((err) => {
+		console.log(`LIFF initialization failed: ${err.message}`);
+	  });
     }
   </script>
 </body>
