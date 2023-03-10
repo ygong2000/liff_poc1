@@ -17,8 +17,9 @@
 		  const userProfile = liff.getProfile();
 		  if (userProfile) {
 			const userId = userProfile.userId;
-			document.getElementById('userId').innerHTML = `Your Line user ID vv is: ${userId}`;
+			document.getElementById('userId').innerHTML = `hello`;
 		  } else {
+			document.getElementById('userId').innerHTML = `world`;
 			console.log('Failed to get user profile');
 		  }
 		} else {
