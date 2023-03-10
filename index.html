@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>LIFF Example</title>
-</head>
-<body>
-  <h1>LIFF Example333</h1>
-  <p>User's LINE UID: <span id="line-uid"></span></p>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOTTENDER LINE LIFF V2 DEMO</title>
+  </head>
 
-  <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
-  <script>
-    async function main() {
-      // Initialize LIFF
-      await liff.init({ liffId: "1656167992-OLx3dxD5" });
+  <body>
+    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <script>
+      function initializeLiff(myLiffId) {
+        liff
+          .init({
+            liffId: myLiffId,
+          })
+          .then(() => {
+            alert('LIFF init success!');
+          })
+          .catch((err) => {
+            alert(`error: ${JSON.stringify(err)}`);
+          });
+      }
 
-      // Get the user's LINE UID
-      const context = await liff.getContext();
-      const lineUid = context.userId;
-	  console.log("User's LINE UID: " + lineUid);
-      // Update the HTML to display the user's LINE UID
-      document.getElementById("line-uid").textContent = lineUid;
-    }
-
-    main();
-  </script>
-</body>
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch(`/send-id`)
+          .then((reqResponse) => reqResponse.json())
+          .then((jsonResponse) => {
+            let myLiffId = jsonResponse.id;
+            initializeLiff(myLiffId);
+          })
+          .catch((err) => {
+            alert(`error: ${JSON.stringify(err)}`);
+          });
+      });
+    </script>
+  </body>
 </html>
