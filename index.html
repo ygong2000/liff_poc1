@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>LIFF Example</title>
-    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
-    <script>
+<head>
+  <meta charset="UTF-8">
+  <title>LIFF Example</title>
+</head>
+<body>
+  <h1>LIFF Example1111</h1>
+  <p>User's LINE UID: <span id="line-uid"></span></p>
+
+  <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+  <script>
+    async function main() {
       // Initialize LIFF
-      liff.init({
-        liffId: 'your-liff-id'
-      }).then(() => {
-        // Get the user's LINE UID
-        liff.getProfile().then(profile => {
-          const userId = profile.userId;
-          // Use the LINE UID as needed
-          console.log('User ID: ', userId);
-        }).catch(error => {
-          console.error('Error getting profile: ', error);
-        });
-      }).catch(error => {
-        console.error('Error initializing LIFF: ', error);
-      });
-    </script>
-  </head>
-  <body>
-    <h1>LIFF Example</h1>
-  </body>
+      await liff.init({ liffId: "YOUR_LIFF_ID" });
+
+      // Get the user's LINE UID
+      const context = await liff.getContext();
+      const lineUid = context.userId;
+
+      // Update the HTML to display the user's LINE UID
+      document.getElementById("line-uid").textContent = lineUid;
+    }
+
+    main();
+  </script>
+</body>
 </html>
