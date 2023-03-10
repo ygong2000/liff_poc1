@@ -5,7 +5,7 @@
   <title>LIFF Example</title>
 </head>
 <body>
-  <h1>LIFF Example222</h1>
+  <h1>LIFF Example333</h1>
   <p>User's LINE UID: <span id="line-uid"></span></p>
 
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
@@ -17,7 +17,7 @@
       // Get the user's LINE UID
       const context = await liff.getContext();
       const lineUid = context.userId;
-
+	  console.log("User's LINE UID: " + lineUid);
       // Update the HTML to display the user's LINE UID
       document.getElementById("line-uid").textContent = lineUid;
     }
