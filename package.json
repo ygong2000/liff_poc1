@@ -1,0 +1,22 @@
+{
+  "name": "liff_poc1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ygong2000/liff_poc1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ygong2000/liff_poc1/issues"
+  },
+  "homepage": "https://github.com/ygong2000/liff_poc1#readme",
+  "dependencies": {
+    "@line/liff": "^2.21.4"
+  }
+}
