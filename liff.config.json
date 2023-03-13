@@ -1,0 +1,14 @@
+{
+  "type": "liff",
+  "url": "https://liff.line.me/1656167992-OLx3dxD5",
+  "view": {
+    "mode": "full",
+    "language": "en-US"
+  },
+  "features": {
+    "shareTargetPicker": {
+      "actionType": "LOCATION"
+    }
+  },
+  "permissions": ["profile"]
+}
