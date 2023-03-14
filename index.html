@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Get Line User ID</title>
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-</head>
-<body>
-  <div id="userId"></div>
-  <button onclick="getLineUserId()">Get Line User ID</button>
-  <script>
-    function getLineUserId() {
-	  liff.init({
-		liffId: '1656167992-OLx3dxD5'
-	  }).then(() => {
-		if (liff.isLoggedIn()) {
-		  const userProfile = liff.getProfile();
-		  if (userProfile) {
-			const userId = userProfile.userId;
-			document.getElementById('userId').innerHTML = `hello` + userId;
-		  } else {
-			document.getElementById('userId').innerHTML = `world`;
-			console.log('Failed to get user profile');
-		  }
-		} else {
-		  liff.login();
-		}
-	  }).catch((err) => {
-		console.log(`LIFF initialization failed: ${err.message}`);
-	  });
-    }
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>LIFF App</title>
+    <script type="text/javascript" src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+  </head>
+  <body>
+    <h1>LIFF App</h1>
+    <button id="liffButton" onclick="initializeLiff()">Get LINE UID</button>
+    <div id="output"></div>
+    <script type="text/javascript">
+      function initializeLiff() {
+        liff.init({ liffId: "1656167992-OLx3dxD5" }, function(data) {
+          getProfile();
+        });
+      }
+      
+      function getProfile() {
+        liff.getProfile().then(function(profile) {
+          document.getElementById("output").innerHTML = "LINE UID: " + profile.userId;
+        }).catch(function(error) {
+          console.log(error);
+        });
+      }
+    </script>
+  </body>
 </html>
+
