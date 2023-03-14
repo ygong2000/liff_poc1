@@ -20,6 +20,7 @@
         liff.getProfile().then(function(profile) {
           document.getElementById("output").innerHTML = "LINE UID: " + profile.userId;
         }).catch(function(error) {
+			document.getElementById("output").innerHTML = "bad eee";
           console.log(error);
         });
       }
